@@ -42,10 +42,10 @@ const validateContact = ({
   ) {
     return true
   } else {
-    document.getElementById('firstNameErrorMsg').innerHTML = firstName ? '' : 'Champ invalide'
-    document.getElementById('lastNameErrorMsg').innerHTML = lastName ? '' : 'Champ invalide'
+    document.getElementById('firstNameErrorMsg').innerHTML = firstName && !hasNumber(firstName) ? '' : 'Champ invalide'
+    document.getElementById('lastNameErrorMsg').innerHTML = lastName && !hasNumber(lastName) ? '' : 'Champ invalide'
     document.getElementById('addressErrorMsg').innerHTML = address ? '' : 'Champ invalide'
-    document.getElementById('cityErrorMsg').innerHTML = city ? '' : 'Champ invalide'
+    document.getElementById('cityErrorMsg').innerHTML = city && !hasNumber(city) ? '' : 'Champ invalide'
     document.getElementById('emailErrorMsg').innerHTML = (email && isEmail(email)) ? '' : 'Champ invalide'
     return false
   }
