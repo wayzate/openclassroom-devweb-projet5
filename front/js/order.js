@@ -34,10 +34,10 @@ const validateContact = ({
   email,
 }) => {
   if (
-    firstName
-    && lastName
+    firstName && !hasNumber(firstName)
+    && lastName && !hasNumber(lastName)
     && address
-    && city
+    && city && !hasNumber(city)
     && email && isEmail(email)
   ) {
     return true
@@ -60,6 +60,10 @@ const craftContact = () => {
     email: document.getElementById('email').value,
   }
   return contact
+}
+
+const hasNumber = myString => {
+  return /\d/.test(myString);
 }
 
 const isEmail = (email) => {
